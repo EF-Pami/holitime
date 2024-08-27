@@ -9,6 +9,7 @@ export default function Footer() {
             <div className="socialsContainer">
                 <FacebookIcon fontSize="large" sx={{color: "blue"}} />
                 <InstagramIcon fontSize="large" sx={{color: "blue"}} />
+                <Twitter fontSize="large" sx={{color: "blue"}} />
             </div>
             <p>&copy; HoliTime</p>
         </StyledFooter>
