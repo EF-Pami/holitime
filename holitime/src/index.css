@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto+Flex:opsz,wght@8..144,100;8..144,300;8..144,400;8..144,700&display=swap");
+@import "react-calendar/dist/Calendar.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
+/*body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -14,4 +17,309 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}*/
+
+
+:root {
+  margin: 0;
+  padding: 0;
+  font-family: theme("fontFamily.text");
+  background-color: theme("colors.secondary");
+}
+
+body {
+  width: 100%;
+}
+
+main {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  max-width: 1440px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: theme("fontFamily.heading");
+}
+
+.btn {
+  padding: 0.5px 2px;
+  border-radius: 25px;
+  border: 1px solid theme("colors.primary");
+  background-color: theme("colors.background");
+  color: theme("colors.secondary");
+  cursor: pointer;
+  transition: ease 0.5s;
+  box-shadow: 0px 2.5px 5px rgba(0, 0, 0, 0.5);
+
+  &:hover {
+    background-color: theme("colors.primary");
+    color:theme ("colors.secondary");
+  }
+}
+
+.btn-revert {
+  padding: 0.15rem 1rem;
+  border-radius: 25px;
+  border: 1px solid theme("colors.primary");
+  background-color: theme("colors.primary");
+  color: theme("colors.white");
+  cursor: pointer;
+  transition: ease 0.3s;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.6);
+
+  &:hover {
+    background-color: theme("colors.primary");
+    color: theme("colors.secondary");
+  }
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+.search-results {
+  max-width: 375px;
+  max-height: 22rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+input {
+  text-indent: 0.5rem;
+  color: #000;
+}
+
+
+.cards {
+  width: 350px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: theme("colors.background");
+  color: theme("colors.secondary");
+  box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.2);
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel-item {
+  flex: none;
+  width: 100%;
+  scroll-snap-align: start;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+textarea {
+  text-indent: 0.5rem;
+  color: #000;
+}
+
+
+form select {
+  text-indent: 0.3rem;
+  height: 38px;
+  color: #000;
+}
+
+.loader {
+  font-size: 16px;
+  margin: auto;
+  font-weight: 600;
+  display: inline-block;
+  letter-spacing: 2px;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  animation: spotlight 2s linear infinite alternate;
+}
+
+@keyframes spotlight {
+  0%,
+  20% {
+    opacity: 1;
+    letter-spacing: 2px;
+  }
+  80%,
+  100% {
+    opacity: 0;
+    letter-spacing: 16px;
+  }
+}
+
+.circle-loader {
+  margin-bottom: 3.5em;
+  border: 1px solid theme("colors.primary");
+  border-left-color: theme("colors.secondary");
+  animation: loader-spin 1.2s infinite linear;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 50%;
+  width: 7rem;
+  height: 7rem;
+  margin: auto;
+}
+
+.load-complete {
+  -webkit-animation: none;
+  animation: none;
+  border-color: theme("colors.primary");
+  transition: border 500ms ease-out;
+}
+
+.checkmark {
+  display: none;
+}
+
+.load-complete .checkmark {
+  display: block;
+}
+
+.checkmark.draw:after {
+  animation-duration: 800ms;
+  animation-timing-function: ease;
+  animation-name: checkmark;
+  transform: scaleX(-1) rotate(135deg);
+}
+
+.checkmark:after {
+  opacity: 1;
+  height: 3.5rem;
+  width: 1.75rem;
+  transform-origin: left top;
+  border-right: 3px solid theme("colors.primary");
+  border-top: 3px solid theme("colors.primary");
+  content: "";
+  left: 1.75rem;
+  top: 3.5rem;
+  position: absolute;
+}
+
+@keyframes loader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1;
+  }
+  20% {
+    height: 0;
+    width: 1.75rem;
+    opacity: 1;
+  }
+  40% {
+    height: 3.5rem;
+    width: 1.75rem;
+    opacity: 1;
+  }
+  100% {
+    height: 3.5rem;
+    width: 1.75rem;
+    opacity: 1;
+  }
+}
+
+.react-calendar {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+}
+
+.noPinterEvents {
+  pointer-events: none;
+}
+
+.react-calendar__tile {
+  border-radius: 25px;
+}
+
+.react-calendar__tile:hover {
+  background-color: theme("colors.primary") !important;
+  color: theme("colors.white") !important;
+}
+
+.react-calendar__tile:disabled {
+  background-color: theme("colors.accentTwo");
+  color: theme("colors.white");
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.react-calendar__tile--now {
+  border-radius: 25px;
+  background-color: theme("colors.primary") !important;
+  opacity: 1 !important;
+}
+
+.react-calendar__tile--active {
+  background-color: theme("colors.accent") !important;
+  color: theme("colors.white") !important;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  border: 1px solid theme("colors.primary");
+  border-radius: theme("borderRadius.25");
+  background-color: theme("colors.background");
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+}
+
+.toggle-switch.light::before,
+.toggle-switch.dark::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  border-radius: theme("borderRadius.25");
+  background-color: theme("colors.secondary");
+  transition: transform 0.3s ease-in-out;
+}
+
+.toggle-switch.light::before {
+  transform: translateX(0);
+  box-shadow: 15px 0px 20px rgba(255, 255, 0, 1);
+}
+
+.toggle-switch.dark::before {
+  transform: translateX(100%);
+  box-shadow: -15px 0px 20px rgba(0, 0, 0, 1);
+}
+
+.toggle-switch .icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  transition: left 0.3s ease-in-out;
+}
+
+.toggle-switch.light .icon {
+  left: 2px;
+}
+
+.toggle-switch.dark .icon {
+  left: 32px;
 }
