@@ -433,7 +433,7 @@ const CreateVenue = ({ venue, isEdit, onClose }) => {
                             <div className="mt-2">
                                 <input
                                     onChange={handleLocationChange}
-                                    type="text"
+                                    type="number"
                                     name="zip"
                                     id="zip"
                                     pattern="[0-9]{5}"

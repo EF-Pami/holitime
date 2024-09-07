@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+
+import { StyledFooter } from "./styled";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { Twitter } from "@mui/icons-material";

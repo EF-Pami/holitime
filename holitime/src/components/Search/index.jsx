@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState} from "react";
-import { IoClose, IoSearchSharp } from "react-icons/io5";
+import { IoSearchSharp } from "react-icons/io5";
 import { RxHamburgerMenu} from "react-icons/rx";
 import useFetch from "../../Api/FetchHook";
 import { searchUrl } from "../../Api/constants/url";
@@ -71,10 +71,7 @@ const SearchBar = ({ onContinentSelect}) => {
         setSearchQuery(event.target.value);
     };
 
-    const handleContinentSelect = (continent) => {
-        onContinentSelect(continent);
-        setIsExpanded(false);
-    };
+    
 
     const toggleExpanded = () => {
         setIsExpanded(!isExpanded);

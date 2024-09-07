@@ -3,7 +3,7 @@ import Apikey from "../constants/ApiKey";
 
 
 const useFetch = (url) => {
-    const [date, setData] = useState(null);
+    const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [isSuccess, setIsSuccess] = useState(false);

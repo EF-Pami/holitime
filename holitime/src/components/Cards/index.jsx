@@ -14,17 +14,19 @@ import { ContinentContext } from "../layout/Main";
 
 const Cards = () => {
     const [page, setPage] = useState(1);
+    const [limit, setLimit] = useState(8);
     const [filteredVenues, setFilteredVenues] = useState([]);
-    const [venues] = FetchVenues(page);
+    const {venues, loading, error} = FetchVenues(page, limit);
     const [expandedCard, setExpandedCard] = useState(null);
     const navigate = useNavigate();
     const { selectedContinent, setSelectedContinent} =
         useContext(ContinentContext);
 
     useEffect(() => {
-        if (venues.data) {
+        console.log("venues:", venues); //log the venues data
+        if (Array.isArray(venues.data)) {
             if(selectedContinent) {
-                const filtered = venues.data.filter(
+                const filtered = venues.filter(
                     (venue) =>venue.location.continent === selectedContinent
                 );
                 setFilteredVenues(filtered);
@@ -61,6 +63,7 @@ const Cards = () => {
             </div>
         );
     }
+
 
     const toggleExpanded = (id) => {
         setExpandedCard(expandedCard === id ? null : id);

@@ -69,7 +69,7 @@ const ImageCarousel = ({ images, imageStyle}) => {
 };
 
 ImageCarousel.propTypes = {
-    image: PropTypes.arrayOf(
+    images: PropTypes.arrayOf(
         PropTypes.shape({
             url: PropTypes.string.isRequired,
             alt: PropTypes.string.isRequired,

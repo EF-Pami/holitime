@@ -9,7 +9,7 @@ import { LuParkingCircle} from "react-icons/lu";
  */
 
 const Meta = ({object}) => {
-    if (!object || object.keys(object).length === 0) {
+    if (!object || Object.keys(object).length === 0) {
         return null;
     }
 

@@ -124,7 +124,7 @@ const Header = () => {
             </nav>
             <div
                 ref={menuRef}
-                className={`md:hidden ${isMenuOpen ? "block" : "hidden"} bg-secondary w-full`}
+                className={`block md:hidden ${isMenuOpen ? "block" : "hidden"} bg-secondary w-full`}
             >
                 <div className={`flex justify-center gap-5 pb-6`}>
                     <button
