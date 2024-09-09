@@ -44,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn {
   padding: 0.5px 2px;
   border-radius: 25px;
-  border: 1px solid theme("colors.primary");
+  border: 1px solid theme("colors.white");
   background-color: theme("colors.background");
   color: theme("colors.secondary");
   cursor: pointer;
@@ -94,11 +94,12 @@ input {
   width: 350px;
   height: 400px;
   display: flex;
+  border-radius: 20px;
   flex-direction: column;
   justify-content: space-between;
-  background-color: theme("colors.background");
+  background-color: theme("colors.white");
   color: theme("colors.secondary");
-  box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2);
 }
 
 .carousel {

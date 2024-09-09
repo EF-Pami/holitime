@@ -47,20 +47,20 @@ const Header = () => {
             <nav className="flex justify-between items-center m-auto p-5 max-w-[1440px]">
                 <h1
                     onClick={() => navigate("/")}
-                    className="text-primary uppercase text-2xl hover:cursor-pointer hover:text-background transition-all duration-300 ease-in-out"
+                    className="text-white uppercase text-2xl hover:cursor-pointer hover:text-background transition-all duration-300 ease-in-out"
                 >
                     HoliTime
                 </h1>
                 <div className="md:hidden">
                     <button
                         onClick={toggleMenu}
-                        className="text-primary focus:outline-none flex"
+                        className="text-white focus:outline-none flex"
                         aria-label="toggle menu"
                     >
                         {isMenuOpen? <FaTimes size={25} /> : <FaBars size={25} />}
                     </button>
                 </div>
-                <div className="hidden md: flex flex-wrap gap-3">
+                <div className="hidden md:flex flex-wrap gap-3">
                     <button
                         type="button"
                         className={`toggle-switch ${theme}`}
@@ -124,7 +124,7 @@ const Header = () => {
             </nav>
             <div
                 ref={menuRef}
-                className={`block md:hidden ${isMenuOpen ? "block" : "hidden"} bg-secondary w-full`}
+                className={`md:hidden ${isMenuOpen ? "block" : "hidden"} bg-secondary w-full`}
             >
                 <div className={`flex justify-center gap-5 pb-6`}>
                     <button

@@ -34,9 +34,10 @@ const LoginForm = () => {
     };
 
     useEffect(() => {
+        console.log("loggedIn status:", loggedIn); //debugging line
         if (loggedIn) {
             setTimeout(() => {
-                navigate("/");
+                navigate("/profile/:name");
             }, 1500);
         }
     }, [loggedIn, navigate]);
@@ -54,7 +55,7 @@ const LoginForm = () => {
             </Modal>
             <form
                 onSubmit={handleSubmit}
-                className="flex-col align-middle bg-accentTwo p-4 rounded-25 w-[20rem]"
+                className="flex-col align-middle bg-white p-4 rounded-25 w-[20rem]"
             >
                 <div className="border-b pb-12 min-w-3/4">
                     <h2 className="leading-7 text">Login</h2>
@@ -110,7 +111,7 @@ const LoginForm = () => {
                         Cancel
                     </button>
                     <button type="submit" className="btn">
-                        {loading ? <p>Loading..</p> : <p>Send</p>}
+                        {loading ? <p>Loading..</p> : <p>Submit</p>}
                     </button> 
                 </div>
             </form>

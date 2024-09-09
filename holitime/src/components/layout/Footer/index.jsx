@@ -8,11 +8,11 @@ export default function Footer() {
     return (
         <StyledFooter>
             <div className="socialsContainer">
-                <FacebookIcon fontSize="large" sx={{color: "blue"}} />
-                <InstagramIcon fontSize="large" sx={{color: "blue"}} />
-                <Twitter fontSize="large" sx={{color: "blue"}} />
+                <FacebookIcon fontSize="large" sx={{color: "white"}} />
+                <InstagramIcon fontSize="large" sx={{color: "white"}} />
+                <Twitter fontSize="large" sx={{color: "white"}} />
             </div>
-            <p>&copy; HoliTime</p>
+            <p className="text-white uppercase text-2xl">&copy; HoliTime</p>
         </StyledFooter>
     );
 }

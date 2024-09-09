@@ -10,7 +10,7 @@ const Home = () => {
     const { theme} = useContext(ThemeContext);
 
     return (
-        <div className={`${theme === "light" ? "bg-background text-secondary" : "bg-secondary text-primary"}`}>
+        <div className={`${theme === "light" ? "bg-background text-secondary" : "bg-secondary text-white"}`}>
             <h1 className="text-xl text-center">Featured Venues</h1>
             <Cards/>
         </div>

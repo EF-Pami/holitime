@@ -87,7 +87,7 @@ const Cards = () => {
                     id="limit"
                     value={limit}
                     onChange={handleLimitChange}
-                    className="ml-2 p-2 rounded-25 bg-background text-black border border-primary shadow-lg"
+                    className="ml-2 p-2 rounded-25 bg-white text-black border border-black shadow-lg"
                 >
                     <option value={8}>8</option>
                     <option value={12}>12</option>

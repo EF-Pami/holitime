@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState} from "react";
 import { IoSearchSharp } from "react-icons/io5";
-import { RxHamburgerMenu} from "react-icons/rx";
+
 import useFetch from "../../Api/FetchHook";
 import { searchUrl } from "../../Api/constants/url";
 import { useNavigate } from "react-router-dom";
@@ -82,7 +82,7 @@ const SearchBar = ({ onContinentSelect}) => {
             <div className="flex justify-center py-5">
                 <div
                     id="search-bar"
-                    className="bg-white gap-5 p-5 rounded-50 border-primary border-2 shadow-xl"
+                    className="bg-white gap-5 p-5 rounded-50 border-black border-2 shadow-xl"
                     ref={searchBarRef}
                 >
                     <div
@@ -91,7 +91,7 @@ const SearchBar = ({ onContinentSelect}) => {
                     >
                         <IoSearchSharp size={30} />
                         <h2 id="SearchBarH2">{headingText}</h2>
-                        <RxHamburgerMenu size={30} />
+                        
                     </div>
                     {isExpanded && (
                         <div className="w-full mt-3">
@@ -153,19 +153,19 @@ const SearchBar = ({ onContinentSelect}) => {
                                                     </div>
                                                     <div className="ml-3 w-full">
                                                         <h4 className="text-sm">
-                                                            {result.name == ""
+                                                            {result.name === ""
                                                                 ? "Title"
                                                                 : result.name.slice(0, 20)
                                                             }
                                                         </h4>
                                                         <div className="flex mr-3 items-center justify-between">
                                                             <div className="text-sm">
-                                                                {result.description == ""
+                                                                {result.description === ""
                                                                     ? "Description"
                                                                     : result.description.slice(0, 20)
                                                                 }
                                                             </div>
-                                                            {result.rating == 0? (
+                                                            {result.rating === 0? (
                                                                 "No Rating"
                                                             ) : (
                                                                 <Rating rating={result.rating} />

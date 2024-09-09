@@ -15,8 +15,9 @@ export default  {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      background: "#E5D1B8", //off-white
+      background: "#63AEF4", //off-white
       black: "#000",
+      blue: "#5C00FF",
       white: "#fff",
       primary: "#DE8E59", // Very dark gray
       secondary: "#2B2129", // Orange

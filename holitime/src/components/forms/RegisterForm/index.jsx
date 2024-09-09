@@ -133,7 +133,7 @@ const RegistrationForm = () => {
         </Modal>
         <form
           onSubmit={handleSubmit}
-          className="flex-col align-middle bg-accentTwo p-4 rounded-25"
+          className="flex-col align-middle bg-white p-4 rounded-25"
         >
           <div className="border-b pb-12">
             <h2 className="leading-7">Register your Profile</h2>
