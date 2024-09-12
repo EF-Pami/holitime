@@ -37,8 +37,8 @@ const LoginForm = () => {
         console.log("loggedIn status:", loggedIn); //debugging line
         if (loggedIn) {
             setTimeout(() => {
-                navigate("/profile/:name");
-            }, 1500);
+                navigate("/");
+            }, 1000);
         }
     }, [loggedIn, navigate]);
 
