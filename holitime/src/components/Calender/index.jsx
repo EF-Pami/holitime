@@ -24,7 +24,7 @@ const MyBookingCalender = ({
     const [booking, setBooking] = useState({
         dateFrom: "",
         dateTo: "",
-        guests: 0,
+        guests: 1,
         venueId: `${venueId}`,
     });
     const [bookingSuccess, setBookingSuccess] = useState(false);
