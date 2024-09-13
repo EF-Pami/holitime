@@ -64,7 +64,7 @@ const CreateVenue = ({ venue, isEdit, onClose }) => {
 
     useEffect(() => {
         validateForm();
-    }, [formData]);
+    }, [formData, validateForm]);
 
     const closeModal = () => {
         setShowModal(false);

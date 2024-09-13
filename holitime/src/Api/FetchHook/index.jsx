@@ -50,7 +50,7 @@ const useFetch = (url) => {
                 setLoading(false);
             }
         },
-        [url, Apikey]
+        [url]
     );
 
     return { data, loading, error, performFetch, isSuccess};

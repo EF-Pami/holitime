@@ -26,7 +26,7 @@ const Cards = () => {
         console.log("venues:", venues); //log the venues data
         if (Array.isArray(venues.data)) {
             if(selectedContinent) {
-                const filtered = venues.filter(
+                const filtered = venues.data.filter(
                     (venue) =>venue.location.continent === selectedContinent
                 );
                 setFilteredVenues(filtered);
@@ -35,7 +35,7 @@ const Cards = () => {
             }
             setPage(1);
         }
-    }, [selectedContinent, venues.data]);
+    }, [selectedContinent, venues]);
 
     const handleNextPage = () => setPage((prevPage) => prevPage +1);
     const handlePreviousPage = () =>

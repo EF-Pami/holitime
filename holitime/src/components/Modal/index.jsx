@@ -21,7 +21,7 @@ const Modal = ({ children, isOpen, onClose, isSuccess }) => {
             }, 1500);
             return () => clearTimeout(timer);
         }
-    }, [isOpen, isSuccess]);
+    }, [isOpen, isSuccess, location.pathname]);
 
     if (!isOpen) return null;
 
