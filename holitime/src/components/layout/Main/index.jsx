@@ -28,7 +28,7 @@ const Main = ({ selectedContinent, setSelectedContinent}) => {
 
 Main.propTypes = {
     selectedContinent: PropTypes.string,
-    selectedContinent: PropTypes.func,
+    setSelectedContinent: PropTypes.func,
 };
 
 export { Main, ContinentContext};

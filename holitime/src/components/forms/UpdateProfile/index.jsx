@@ -54,7 +54,7 @@ const UpdateProfile = ({ isUser, onClose }) => {
         if (showModal && (isSuccess || error)) {
             setShowModal(true);
         }
-    }, [isSuccess, error]);
+    }, [isSuccess, error, showModal]);
 
     const isValidUrl = (url) => {
         try {

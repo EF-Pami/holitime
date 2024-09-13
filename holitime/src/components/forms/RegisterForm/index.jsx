@@ -1,4 +1,4 @@
-import React, { useEffect , useState} from "react";
+import React, { useEffect , useState, useCallback} from "react";
 import { PiAt, PiImage, PiPassword, PiTextAUnderline, PiUser } from "react-icons/pi";
 import { registerUrl, loginUrl } from "../../../Api/constants/url";
 import useFetch from "../../../Api/FetchHook";
@@ -31,6 +31,27 @@ const RegistrationForm = () => {
   
     const [formErrors, setFormErrors] = useState({});
     const [isFormValid, setIsFormValid] = useState(false);
+
+    // Memoized validation function
+  const validateForm = useCallback(() => {
+    const errors = {};
+    if (!formData.name) {
+      errors.name = "Username is required.";
+    }
+    if (!validateEmail(formData.email)) {
+      errors.email = "Email must be a valid @stud.noroff.no address.";
+    }
+    if (!validatePassword(formData.password)) {
+      errors.password =
+        "Password must contain at least one uppercase letter and one number.";
+    }
+    if (formData.password !== formData.repeatPassword) {
+      errors.repeatPassword = "Passwords do not match.";
+    }
+
+    setFormErrors(errors);
+    setIsFormValid(Object.keys(errors).length === 0);
+  }, [formData]);
   
     useEffect(() => {
       if (data && !error) {
@@ -50,7 +71,7 @@ const RegistrationForm = () => {
   
     useEffect(() => {
       validateForm();
-    }, [formData]);
+    }, [formData, validateForm]);
   
     const closeModal = () => {
       setShowModal(false);
@@ -91,25 +112,7 @@ const RegistrationForm = () => {
       return passwordRegex.test(password);
     };
   
-    const validateForm = () => {
-      const errors = {};
-      if (!formData.name) {
-        errors.name = "Username is required.";
-      }
-      if (!validateEmail(formData.email)) {
-        errors.email = "Email must be a valid @stud.noroff.no address.";
-      }
-      if (!validatePassword(formData.password)) {
-        errors.password =
-          "Password must contain at least one uppercase letter and one number.";
-      }
-      if (formData.password !== formData.repeatPassword) {
-        errors.repeatPassword = "Passwords do not match.";
-      }
-  
-      setFormErrors(errors);
-      setIsFormValid(Object.keys(errors).length === 0);
-    };
+    
   
     const handleSubmit = (event) => {
       event.preventDefault();
