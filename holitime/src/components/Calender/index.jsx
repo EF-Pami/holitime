@@ -217,11 +217,11 @@ const MyBookingCalender = ({
                             </div>
                             <button
                                 onClick={() => {
-                                    {
-                                        value
-                                            ? toggleVisibility()
-                                            : alert("Please select starting and ending dates on the calender");
-                                    }
+                                    
+                                     value
+                                        ? toggleVisibility()
+                                        : alert("Please select starting and ending dates on the calender");
+                                    
                                 }}
                                 type="button"
                                 className="btn-revert px-10 py-2 text-xl bg-primary rounded-full hover:bg-background hover:text-secondary transition-all duration-300 ease-in-out"

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { PiAt, PiImage, PiTextAUnderline, PiTag, PiCurrencyEur, PiUsers, PiStar, PiMapPin } from "react-icons/pi";
 import useFetch from "../../../Api/FetchHook";
 import { createVenueUrl } from "../../../Api/constants/url";
@@ -33,6 +33,19 @@ const CreateVenue = ({ venue, isEdit, onClose }) => {
     });
 
     const [formErrors, setFormErrors] = useState({});
+
+    const validateForm = useCallback(() => {
+        const errors = {};
+
+        if (!formData.name) errors.name = "Venue name is required.";
+        if (!formData.description) errors.description = "Description is required.";
+        if (!formData.price || formData.price <= 0) errors.price = "Price must be greater than 0.";
+        if (!formData.maxGuests || formData.maxGuests <= 0) errors.maxGuests = "Max guests must be greater than 0.";
+
+        setFormErrors(errors);
+
+        return Object.keys(errors).length === 0;
+    }, [formData]);
 
     useEffect(() => {
         if (isEdit && venue) {
@@ -71,20 +84,7 @@ const CreateVenue = ({ venue, isEdit, onClose }) => {
         onClose();
     };
 
-    const validateForm = () => {
-        const errors = {};
-
-        if (!formData.name) errors.name = "Venue name is required.";
-        if (!formData.description) errors.description = "Description is required.";
-        if (!formData.price || formData.price <= 0)
-            errors.price = "Price must be greater than 0.";
-        if (!formData.maxGuests || formData.maxGuests <= 0)
-            errors.maxGuests = "Max guests must be greater than 0.";
-
-        setFormErrors(errors);
-
-        return Object.keys(errors).length === 0;
-    };
+    
 
     const handleChange = (event) => {
         const { name, value } = event.target;
