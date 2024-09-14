@@ -3,14 +3,14 @@ import useFetch from "../FetchHook";
 
 const useLogin = (url) => {
     const {data, loading, error, performFetch, isSuccess} = useFetch(url);
-    const [loggedLn, setLoggedIn] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(false);
 
     const login = useCallback(
         (credentials) => {
             performFetch({
                 method: "POST",
                 headers: {
-                    "Content-Types": "application/json",
+                    "Content-Type": "application/json",
                 },
                 body: JSON.stringify(credentials),
             });
@@ -26,7 +26,7 @@ const useLogin = (url) => {
         }
     }, [data]);
 
-    return {loading, error, loggedLn, login, isSuccess};
+    return {loading, error, loggedIn, login, isSuccess};
 };
 
 export default useLogin;

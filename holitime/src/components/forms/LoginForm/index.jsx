@@ -36,9 +36,7 @@ const LoginForm = () => {
     useEffect(() => {
         console.log("loggedIn status:", loggedIn); //debugging line
         if (loggedIn) {
-            setTimeout(() => {
-                navigate("/");
-            }, 1000);
+            navigate("/profile");
         }
     }, [loggedIn, navigate]);
 
