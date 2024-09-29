@@ -1,8 +1,9 @@
 import React, { useEffect , useState, useCallback} from "react";
 import { PiAt, PiImage, PiPassword, PiTextAUnderline, PiUser } from "react-icons/pi";
-import { registerUrl, loginUrl } from "../../../Api/constants/url";
+import { registerUrl, loginUrl} from "../../../Api/constants/url";
 import useFetch from "../../../Api/FetchHook";
 import useLogin from "../../../Api/Login";
+//import useRegister from "../../../Api/Register";
 import { useNavigate } from "react-router-dom";
 import Modal from "../../Modal";
 
@@ -12,9 +13,10 @@ import Modal from "../../Modal";
 
 const RegistrationForm = () => {
     const { performFetch, data, error, loading } = useFetch(registerUrl);
-    const { login, loggedIn } = useLogin(loginUrl);
+    const {login, loggedIn } = useLogin(loginUrl);
     const [showModal, setShowModal] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    //const [submitted, setSubmitted] = useState(false); // state to track submission
     const navigate = useNavigate();
   
     const [formData, setFormData] = useState({
@@ -31,6 +33,7 @@ const RegistrationForm = () => {
   
     const [formErrors, setFormErrors] = useState({});
     const [isFormValid, setIsFormValid] = useState(false);
+    
 
     // Memoized validation function
   const validateForm = useCallback(() => {
@@ -52,13 +55,13 @@ const RegistrationForm = () => {
     setFormErrors(errors);
     setIsFormValid(Object.keys(errors).length === 0);
   }, [formData]);
-  
-    useEffect(() => {
-      if (data && !error) {
-        console.log("Registration successful, logging in...");
-        login({ email: formData.email, password: formData.password });
-      }
-    }, [data, error, login, formData]);
+
+  useEffect(() => {
+    if (data && !error) {
+      console.log("Registration successful, logging in...");
+      login({ email: formData.email, password: formData.password });
+    }
+  }, [data, error, login, formData]);
   
     useEffect(() => {
       if (loggedIn) {
@@ -68,6 +71,7 @@ const RegistrationForm = () => {
         }, 1000);
       }
     }, [loggedIn, navigate]);
+
   
     useEffect(() => {
       validateForm();
@@ -111,8 +115,7 @@ const RegistrationForm = () => {
       const passwordRegex = /^(?=.*[A-Z])(?=.*\d).+$/;
       return passwordRegex.test(password);
     };
-  
-    
+
   
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -126,13 +129,15 @@ const RegistrationForm = () => {
         });
       }
     };
+
+    
   
     return (
       <div className="flex justify-center">
         <Modal isOpen={showModal} onClose={closeModal} isSuccess={isSuccess}>
           {loading && <p>Loading...</p>}
-          {error && <p>Error: {error}</p>}
-          {data && <p>Success! Data received.</p>}
+          {error && <p>Error: {error.message}</p>}
+          {data && <p>Registration successful! Redirecting to login...</p>}
         </Modal>
         <form
           onSubmit={handleSubmit}
@@ -296,7 +301,7 @@ const RegistrationForm = () => {
                 </div>
               </div>
               <div className="sm:col-span-4">
-                <label className="block text-sm font-medium leading-6">
+                <label className="block text-sm font-medium leading-6" htmlFor="venuManager">
                   Venue Manager
                 </label>
                 <div className="mt-2">
